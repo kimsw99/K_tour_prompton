@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tmap Route</title>
+    <!-- T맵 SDK는 부모 페이지에서 이미 로드됨 -->
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map_div" style="width:100%; height:100%;"></div>
+    <script>
+      const route = (() => {
+        try {
+          const raw = new URLSearchParams(location.search).get("route");
+          return JSON.parse(decodeURIComponent(raw));
+        } catch {
+          return [];
+        }
+      })();
+
+      // API 키는 URL 파라미터에서 가져오기
+      const appKey = new URLSearchParams(location.search).get("appKey");
+      
+      if (!appKey) {
+        console.error("🚨 T맵 API 키가 제공되지 않았습니다.");
+        document.getElementById("map_div").innerHTML = "<div style='padding: 20px; text-align: center;'>API 키가 필요합니다.</div>";
+      } else {
+        // T맵 SDK가 로드될 때까지 대기 후 지도 초기화
+        function waitForTmap() {
+          if (typeof Tmapv2 !== 'undefined') {
+            initMap();
+          } else {
+            setTimeout(waitForTmap, 100);
+          }
+        }
+        
+        window.onload = waitForTmap;
+      }
+
+      function initMap() {
+        if (!route || route.length < 2) return;
+
+        const start = route[0];
+        const end = route[route.length - 1];
+        const passList = route.slice(1, -1);
+
+        const map = new Tmapv2.Map("map_div", {
+          center: new Tmapv2.LatLng(start.mapy, start.mapx),
+          width: "100%",
+          height: "100%",
+          zoom: 15,
+        });
+
+        const bounds = new Tmapv2.LatLngBounds();
+
+        route.forEach((point) => {
+          const latLng = new Tmapv2.LatLng(point.mapy, point.mapx);
+          new Tmapv2.Marker({
+            position: latLng,
+            map: map,
+            title: point.title,
+          });
+          bounds.extend(latLng);
+        });
+
+        map.fitBounds(bounds); // ✅ 모든 마커가 보이게 조정
+
+        // 도보 경로 API 요청
+        const headers = { appKey };
+        const data = {
+          startX: start.mapx,
+          startY: start.mapy,
+          endX: end.mapx,
+          endY: end.mapy,
+          startName: start.title,
+          endName: end.title,
+          reqCoordType: "WGS84GEO",
+          resCoordType: "WGS84GEO",
+        };
+
+        if (passList.length > 0) {
+          data.passList = passList.map(p => `${p.mapx},${p.mapy}`).join("_");
+        }
+
+        fetch("https://apis.openapi.sk.com/tmap/routes/pedestrian?version=1&format=json", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            appKey: appKey,
+          },
+          body: new URLSearchParams(data)
+        })
+          .then(res => res.json())
+          .then(json => {
+            const features = json.features;
+            //중복 경로 제거를 위한 Set과 경로 저장을 위한 배열
+            const seen = new Set();
+            const linePath = [];
+
+            const getLineStringFromGeojson = (features, type) => {
+              return features.filter(feature => feature.geometry.type === type);
+            }
+            const lineString = getLineStringFromGeojson(features, 'LineString');
+            
+            console.log("🚀 경로 API 응답:", lineString);
+            features
+            .filter(f => f.geometry.type === "LineString")
+            .forEach(f => {
+              f.geometry.coordinates.forEach(([lng, lat]) => {
+                // 좌표 순서 수정 및 정밀도 조정
+                const key = `${lat.toFixed(6)},${lng.toFixed(6)}`;
+                if (!seen.has(key)) {
+                  seen.add(key);
+                  linePath.push(new Tmapv2.LatLng(lat, lng));
+                }
+              });
+            });
+            console.log("🚀 경로 좌표:", linePath);
+            /*features.forEach(f => {
+              if (f.geometry.type === "LineString") {
+                f.geometry.coordinates.forEach(coord => {
+                  const latLng = new Tmapv2.LatLng(coord[1], coord[0]);
+                  linePath.push(latLng);
+                });
+              }
+            });
+            */
+            new Tmapv2.Polyline({
+              path: linePath,
+              strokeColor: "#ff86e1",
+              strokeWeight: 5,
+              map: map
+            });
+          })
+          .catch(err => console.error("🚨 경로 API 오류:", err));
+      }
+    </script>
+  </body>
+</html>
