@@ -1,6 +1,152 @@
-# K_tour_prompton
+# 🌱 온새미: 여행하듯! 플로깅
 
-플로깅 장소 추천 및 경로 안내 서비스
+### 🧭 **주제**  
+플로깅 기반 지역 탐방 및 환경 보호 서비스
+
+---
+
+## 👥 팀 소개
+
+<div align="center">
+
+### 🌱 **팀명: 온새미**  
+
+</div>
+
+### 👨‍💻 **팀 구성**
+
+<table align="center">
+<tr>
+<td align="center" width="200px">
+<img src="./images/team/hanseungheon.png" width="150px" alt="한승헌"/>
+<br/><b>한승헌</b><br/>팀장
+</td>
+<td align="center" width="200px">
+<img src="./images/team/kimseonguk.png" width="150px" alt="김성욱"/>
+<br/><b>김성욱</b><br/>팀원
+</td>
+<td align="center" width="200px">
+<img src="./images/team/kimseunghyeok.png" width="150px" alt="김승혁"/>
+<br/><b>김승혁</b><br/>팀원
+</td>
+</tr>
+</table>
+
+### 🎯 **팀 배경**
+- IT와 환경이라는 두 키워드를 실제 행동으로 연결하기 위한 **사회적 실험**을 목표로 구성  
+- **프롬프트 기반 AI 서비스** 기획 및 구현 경험 보유  
+- 기술뿐 아니라 **사용자 행동을 유도하는 프롬프트 설계**에 높은 관심을 가진 구성원 중심
+
+---
+
+## 🏁 대회 참여 사유
+
+<div align="center">
+
+| 🎯 **목표** | 📈 **성장** | 🚀 **도전** |
+|:---:|:---:|:---:|
+| **AI 기반 실천형 서비스**로<br/>환경, 건강 등<br/>사회 이슈 해결을 지향 | 창의적인 아이디어를 현실화하며<br/>**팀워크와 기술 역량**을<br/>강화하고자 함 | 생성형 AI 시대의<br/>**UX/인터랙션 설계**를<br/>직접 경험하고 도전하기 위함 |
+
+</div>
+
+---
+
+## 📌 과제 소개
+
+<div align="center">
+
+### ✅ **서비스 기능**
+
+| 🗺️ **장소 추천** | 🛣️ **루트 안내** | 📸 **인증 및 리워딩** |
+|:---:|:---:|:---:|
+| 사용자의 요청에 따라<br/>플로깅에 적합한<br/>장소를 추천 | 선택한 장소를 기반으로<br/>**맞춤형 루트 및 코스**<br/>제공 | 플로깅 종료 후<br/>**사진 인증 및 보상 시스템**을<br/>통해 참여 동기 부여 |
+
+</div>
+
+### 🎯 **주제 선정 사유**
+
+<div align="center">
+
+```mermaid
+graph LR
+    A[🌍 환경 보호] --> D[🌱 지속 가능한<br/>라이프스타일]
+    B[💪 헬스케어] --> D
+    C[🎒 여행 콘텐츠] --> E[✨ 실천적 가치가<br/>더해진 새로운<br/>여행 형태]
+    D --> F[🏃‍♀️ 플로깅 서비스]
+    E --> F
+```
+
+</div>
+
+- 환경 보호와 헬스케어를 동시에 달성할 수 있는 **지속 가능한 라이프스타일** 제안  
+- 환경에 대한 관심 증가에 따라 **플로깅 참여자** 수요 확대  
+- 기존 관광 콘텐츠에 **실천적 가치**를 더한 새로운 여행 형태 제안
+
+---
+
+## 👤 타깃 사용자
+
+<div align="center">
+
+### 🎯 **타깃층**
+
+```
+🏃‍♀️ 걷기나 러닝을 즐기며  
+💚 건강과 일상 모두를 챙기고 싶은  
+🌟 모든 사람들
+```
+
+</div>
+
+---
+
+## 🖼️ 주요 UI 구성
+
+<div align="center">
+
+### 📱 **앱 화면 구성**
+
+</div>
+
+#### 1️⃣ **시작 화면**
+<div align="center">
+<img src="./images/ui/start_screen.png" width="300px" alt="시작 화면"/>
+<br/><i>🏠 메인 화면에서 플로깅 여행을 시작하세요</i>
+</div>
+
+<br/>
+
+#### 2️⃣ **지역 정보 추출 및 플로깅 장소 추천**
+<div align="center">
+<img src="./images/ui/location_recommendation.png" width="300px" alt="장소 추천 화면"/>
+<br/><i>🗺️ AI가 분석한 최적의 플로깅 장소를 확인하세요</i>
+</div>
+
+<br/>
+
+#### 3️⃣ **플로깅 루트 추천**
+<div align="center">
+<img src="./images/ui/route_recommendation.png" width="300px" alt="루트 추천 화면"/>
+<br/><i>🛣️ 맞춤형 루트로 효율적인 플로깅을 계획하세요</i>
+</div>
+
+<br/>
+
+#### 4️⃣ **쓰레기 평가 및 쓰레기통 위치 제공 (RAG 기반)**
+<div align="center">
+<img src="./images/ui/trash_evaluation.png" width="300px" alt="쓰레기 평가 화면"/>
+<br/><i>🗑️ <a href="https://www.data.go.kr/data/15129450/standard.do">공공데이터</a>를 활용한 스마트한 쓰레기 관리</i>
+</div>
+
+<br/>
+
+#### 5️⃣ **플로깅 목표 달성 화면**
+<div align="center">
+<img src="./images/ui/achievement.png" width="300px" alt="목표 달성 화면"/>
+<br/><i>🏆 플로깅 완료! 환경 보호에 기여한 성과를 확인하세요</i>
+</div>
+
+---
 
 ## 🎥 사용 시연 영상
 
