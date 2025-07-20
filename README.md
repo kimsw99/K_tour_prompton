@@ -20,7 +20,7 @@
 <td align="center" width="200px">
 <img src="./images/team/hanseungheon.png" width="150px" alt="한승헌"/>
 <br/><b><a href="https://github.com/JaylenHan" target="_blank">한승헌</a></b><br/>🔸 팀장<br/>
-<i>LLM & Prompt Engineering</i>
+<i>LLM & Prompt</i>
 </td>
 <td align="center" width="200px">
 <img src="./images/team/kimseonguk.png" width="150px" alt="김성욱"/>
