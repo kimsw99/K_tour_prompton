@@ -28,12 +28,12 @@
 <td align="center" width="200px">
 <img src="./images/team/kimseonguk.png" width="150px" alt="김성욱"/>
 <br/><b><a href="https://github.com/kimsw99" target="_blank">김성욱</a></b><br/>🔸 팀원<br/>
-<i>Backend</i>
+<i>LLM & Backend</i>
 </td>
 <td align="center" width="200px">
 <img src="./images/team/kimseunghyeok.png" width="150px" alt="김승혁"/>
 <br/><b><a href="https://github.com/seunghyeokkim" target="_blank">김승혁</a></b><br/>🔸 팀원<br/>
-<i>Frontend</i>
+<i>LLM & Frontend</i>
 </td>
 </tr>
 </table>
