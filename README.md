@@ -156,7 +156,7 @@ graph LR
 
 ## 🎥 사용 시연 영상
 
-[![K_tour_prompton 데모](https://img.youtube.com/vi/YZpdy_qJjEM/0.jpg)](https://www.youtube.com/watch?v=YZpdy_qJjEM)
+[![K_tour_prompton 데모](https://img.youtube.com/vi/YZpdy_qJjEM/0.jpg)](https://youtu.be/vbJUqMBkWoE)
 
 👉 이미지를 클릭하면 YouTube 영상으로 이동합니다.
 
