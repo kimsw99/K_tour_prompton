@@ -116,7 +116,7 @@ graph LR
 
 #### 1️⃣ **시작 화면**
 <div align="center">
-<img src="./images/ui/start_screen.png" width="300px" alt="시작 화면"/>
+<img src="./images/ui/start_screen.png" width="400px" alt="시작 화면"/>
 <br/><i>🏠 메인 화면에서 플로깅 여행을 시작하세요</i>
 </div>
 
@@ -124,7 +124,7 @@ graph LR
 
 #### 2️⃣ **지역 정보 추출 및 플로깅 장소 추천**
 <div align="center">
-<img src="./images/ui/location_recommendation.png" width="300px" alt="장소 추천 화면"/>
+<img src="./images/ui/location_recommendation.png" width="400px" alt="장소 추천 화면"/>
 <br/><i>🗺️ AI가 분석한 최적의 플로깅 장소를 확인하세요</i>
 </div>
 
@@ -132,7 +132,7 @@ graph LR
 
 #### 3️⃣ **플로깅 루트 추천**
 <div align="center">
-<img src="./images/ui/route_recommendation.png" width="300px" alt="루트 추천 화면"/>
+<img src="./images/ui/route_recommendation.png" width="400px" alt="루트 추천 화면"/>
 <br/><i>🛣️ 맞춤형 루트로 효율적인 플로깅을 계획하세요</i>
 </div>
 
@@ -140,7 +140,7 @@ graph LR
 
 #### 4️⃣ **쓰레기 평가 및 쓰레기통 위치 제공 (RAG 기반)**
 <div align="center">
-<img src="./images/ui/trash_evaluation.png" width="300px" alt="쓰레기 평가 화면"/>
+<img src="./images/ui/trash_evaluation.png" width="400px" alt="쓰레기 평가 화면"/>
 <br/><i>🗑️ <a href="https://www.data.go.kr/data/15129450/standard.do">공공데이터</a>를 활용한 스마트한 쓰레기 관리</i>
 </div>
 
@@ -148,7 +148,7 @@ graph LR
 
 #### 5️⃣ **플로깅 목표 달성 화면**
 <div align="center">
-<img src="./images/ui/achievement.png" width="300px" alt="목표 달성 화면"/>
+<img src="./images/ui/achievement.png" width="400px" alt="목표 달성 화면"/>
 <br/><i>🏆 플로깅 완료! 환경 보호에 기여한 성과를 확인하세요</i>
 </div>
 
